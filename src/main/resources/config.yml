@@ -1,0 +1,8 @@
+penalty-xray: 5
+penalty-theft: 8
+penalty-screentime: 1
+penalty-hatespeech: 10
+penalty-massgrief: 10
+penalty-custom-default: 5
+ban-threshold: 10
+hours-to-decrement-point: 12

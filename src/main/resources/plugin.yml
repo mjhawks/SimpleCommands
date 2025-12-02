@@ -1,0 +1,13 @@
+name: SimpleCommands
+version: '1.0-SNAPSHOT'
+main: me.nuttist.simpleCommands.core.SimpleCommands
+api-version: '1.21'
+load: STARTUP
+description: This plugin provides common ban actions bundled into single commands
+author: Nuts
+commands:
+  punish:
+    description: A command for moderators that auto punishes based on arguments
+  getPlayerStat:
+    description: A command to retrieve players entry in database
+    
