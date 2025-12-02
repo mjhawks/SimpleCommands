@@ -16,7 +16,7 @@ Use one unified command to handle all punishments:
 Supported reasons:
 
 - `xray`
-- `hatespeech`
+- `abusivecoms`
 - `massgrief`
 - `theft`
 - `screentime`
@@ -53,7 +53,7 @@ Players naturally recover over time — ELO slowly decays based on actual playti
 ### 🔨 Automated Punishment Actions
 Depending on severity and configuration, the plugin can automatically apply:
 
-`xray` `theft` `hatespeech` `massgrief`
+`xray` `theft` `abusivecoms` `massgrief`
  - 30 day temporary ban
  - inventory and enderchest wipe
  - configurable elo infraction
@@ -118,7 +118,7 @@ All reads and writes use prepared statements for safety and performance.
 ```yaml
 # Penalty points for each reason
 xrayPen: 25
-hatespeechPen: 50
+abusivecomsPen: 50
 massgriefPen: 40
 theftPen: 15
 screentimePen: 5

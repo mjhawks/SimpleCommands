@@ -27,7 +27,7 @@ public class punish implements CommandExecutor{
     private int xrayPenalty;
     private int theftPenalty;
     private int screentimePenalty;
-    private int hatespeechPenalty;
+    private int abusivecomsPenalty;
     private int massgriefPenalty;
     private int customdefaultPenalty;
     private int pointLimit;
@@ -43,7 +43,7 @@ public class punish implements CommandExecutor{
         xrayPenalty = sc.getXrayPen();
         theftPenalty = sc.getTheftPen();
         screentimePenalty = sc.getScreentimePen();
-        hatespeechPenalty = sc.getHatespeechPen();
+        abusivecomsPenalty = sc.getAbusivecomsPen();
         massgriefPenalty = sc.getMassgriefPen();
         customdefaultPenalty = sc.getCustomDefaultPen();
         pointLimit = sc.getBanThreshold();
@@ -67,20 +67,27 @@ public class punish implements CommandExecutor{
             else if(args.length > 1){
                 if(getOfflinePlayer(args[0]).hasPlayedBefore()){
                     UUID playertopunish = Bukkit.getOfflinePlayer(args[0]).getUniqueId();
+
                     switch(args[1]){
                         case "xray":
-                            xray(playertopunish);
+                            if(!xray(playertopunish)){
+                                commandSender.sendMessage("ERROR - xray punishment on "+args[0]+" failed");
+                            }
                             break;
                         case "theft":
-                            theft(playertopunish);
+                            if(!theft(playertopunish)){
+                                commandSender.sendMessage("ERROR - xray punishment on "+args[0]+" failed");
+                            }
                             break;
                         case "screentime":
                             if(!screentime(playertopunish)){
                                 commandSender.sendMessage("Player is offline. Infraction has been added, but no warning was issued");
                             }
                             break;
-                        case "hatespeech":
-                            hatespeech(playertopunish);
+                        case "abusivecoms":
+                            if(!abusivecoms(playertopunish)){
+                                commandSender.sendMessage("ERROR - abusivecoms punishment on "+args[0]+" failed");
+                            }
                             break;
                         case "massgrief":
                             massgrief(playertopunish);
@@ -155,11 +162,11 @@ public class punish implements CommandExecutor{
         }
         return false;
     }
-    private boolean hatespeech(UUID uuid){
+    private boolean abusivecoms(UUID uuid){
         try{
-            PEDB.punishPlayer(uuid,hatespeechPenalty, "Abusive Communication", 0);
+            PEDB.punishPlayer(uuid,abusivecomsPenalty, "Abusive Communication", 0);
         } catch (SQLException e) {
-            logger.info("hatespeech punish attempt on "+Bukkit.getOfflinePlayer(uuid).getName()+" failed: "+e);
+            logger.info("Abusive Communication punish attempt on "+Bukkit.getOfflinePlayer(uuid).getName()+" failed: "+e);
             return false;
         }
         plugin.clearPlayerInventory(uuid);

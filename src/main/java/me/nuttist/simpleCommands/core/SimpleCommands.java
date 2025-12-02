@@ -25,7 +25,7 @@ public final class SimpleCommands extends JavaPlugin implements Listener {
     private int xrayPen;
     private int theftPen;
     private int screentimePen;
-    private int hatespeechPen;
+    private int abusivecomsPen;
     private int massgriefPen;
     private int customDefaultPen;
     private int banThreshold;
@@ -46,7 +46,7 @@ public final class SimpleCommands extends JavaPlugin implements Listener {
         xrayPen = getConfig().getInt("penalty-xray");
         theftPen = getConfig().getInt("penalty-theft");
         screentimePen = getConfig().getInt("penalty-screentime");
-        hatespeechPen = getConfig().getInt("penalty-hatespeech");
+        abusivecomsPen = getConfig().getInt("penalty-abusivecoms");
         massgriefPen = getConfig().getInt("penalty-massgrief");
         customDefaultPen = getConfig().getInt("penalty-custom-default");
         banThreshold = getConfig().getInt("ban-threshold");
@@ -123,8 +123,8 @@ public final class SimpleCommands extends JavaPlugin implements Listener {
         return screentimePen;
     }
 
-    public int getHatespeechPen() {
-        return hatespeechPen;
+    public int getAbusivecomsPen() {
+        return abusivecomsPen;
     }
 
     public int getMassgriefPen() {

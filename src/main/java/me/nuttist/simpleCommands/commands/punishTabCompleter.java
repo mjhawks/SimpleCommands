@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class punishTabCompleter implements TabCompleter {
-    private List<String> punishOptions = new ArrayList<>(Arrays.asList("xray","theft","screentime","hatespeech","massgrief","custom"));
+    private List<String> punishOptions = new ArrayList<>(Arrays.asList("xray","theft","screentime","abusivecoms","massgrief","custom"));
 
     public @Nullable List<String> onTabComplete(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String s, @NotNull String @NotNull [] args) {
 
