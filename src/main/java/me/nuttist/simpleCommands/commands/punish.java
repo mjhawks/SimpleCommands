@@ -71,26 +71,38 @@ public class punish implements CommandExecutor{
                     switch(args[1]){
                         case "xray":
                             if(!xray(playertopunish)){
-                                commandSender.sendMessage("ERROR - xray punishment on "+args[0]+" failed");
+                                commandSender.sendMessage("§cERROR - xray punishment on "+args[0]+" failed");
+                            }else{
+                                commandSender.sendMessage("§2"+args[0]+" has been punished for xray");
                             }
                             break;
                         case "theft":
                             if(!theft(playertopunish)){
-                                commandSender.sendMessage("ERROR - xray punishment on "+args[0]+" failed");
+                                commandSender.sendMessage("§cERROR - theft punishment on "+args[0]+" failed");
+                            }else{
+                                commandSender.sendMessage("§2"+args[0]+" has been punished for theft");
                             }
                             break;
                         case "screentime":
                             if(!screentime(playertopunish)){
-                                commandSender.sendMessage("Player is offline. Infraction has been added, but no warning was issued");
+                                commandSender.sendMessage("§cERROR - screentime punishment on "+args[0]+" failed");
+                            }else{
+                                commandSender.sendMessage("§2"+args[0]+" has been punished for screentime");
                             }
                             break;
                         case "abusivecoms":
                             if(!abusivecoms(playertopunish)){
-                                commandSender.sendMessage("ERROR - abusivecoms punishment on "+args[0]+" failed");
+                                commandSender.sendMessage("§cERROR - abusivecoms punishment on "+args[0]+" failed");
+                            }else{
+                                commandSender.sendMessage("§2"+args[0]+" has been punished for abusivecomms");
                             }
                             break;
                         case "massgrief":
-                            massgrief(playertopunish);
+                            if(!massgrief(playertopunish)){
+                                commandSender.sendMessage("§cERROR - massgrief punishment on "+args[0]+" failed");
+                            }else{
+                                commandSender.sendMessage("§2"+args[0]+" has been punished for massgrief");
+                            }
                             break;
                         case "custom":
                             int customPenaltySize = customdefaultPenalty;
@@ -103,7 +115,11 @@ public class punish implements CommandExecutor{
                                     return false;
                                 }
                             }
-                            customPenalty(playertopunish, customPenaltySize);
+                            if(!customPenalty(playertopunish, customPenaltySize)){
+                                commandSender.sendMessage("§cERROR - custom punishment on "+args[0]+" failed");
+                            }else{
+                                commandSender.sendMessage("§2"+args[0]+" has been punished");
+                            }
                             break;
                     }
                 }
@@ -160,7 +176,7 @@ public class punish implements CommandExecutor{
 
             return true;
         }
-        return false;
+        return true;
     }
     private boolean abusivecoms(UUID uuid){
         try{
