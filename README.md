@@ -135,11 +135,9 @@ eloDecayMinutesPerPoint: 60
 
 ## ⏳ Planned Features
 
-- Web dashboard for viewing player stats
-- Repeat-offender multipliers
-- Discord integration (log punishments to a Discord channel)
-- Public API for extensions / internal tools
-- Offline player inventory clearing (when Paper provides access)
+- more extensive custom punishment generator
+- more customization settings in config
+- coreprotect rollback integration
 
 ---
 
